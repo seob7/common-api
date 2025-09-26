@@ -1,0 +1,65 @@
+import com.vanniktech.maven.publish.SonatypeHost
+
+plugins {
+    id 'java'
+    id "com.vanniktech.maven.publish" version "0.28.0"
+    id 'signing'
+}
+
+group = 'io.github.seob7'
+version = '0.0.1'
+
+repositories {
+    mavenCentral()
+}
+
+tasks.withType(Javadoc) {
+    options {
+        encoding 'UTF-8'
+    }
+}
+
+signing {
+    sign publishing.publications
+}
+
+mavenPublishing {
+    signAllPublications()
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+
+    coordinates("io.github.seob7", "common-api", "0.0.1")
+
+    // POM 설정
+    pom {
+        name = 'common-api'
+        description = 'Common API specifications and utility classes for Spring Boot'
+        url = 'https://github.com/seob7/common-api'
+
+        // 라이선스 정보
+        licenses {
+            license {
+                name = 'Apache License'
+                url = 'https://github.com/seob7/common-api/blob/main/LICENSE'
+            }
+        }
+
+        // 개발자 정보
+        developers {
+            developer {
+                id = 'seob7'
+                name = 'Dongseob Lee'
+                email = 'svj7531@gmail.com'
+            }
+        }
+
+        scm {
+            connection = 'scm:git:github.com/seob7/common-api.git'
+            developerConnection = 'scm:git:ssh://github.com:seob7/common-api.git'
+            url = 'https://github.com/seob7/common-api/tree/main'
+        }
+    }
+}
+
+dependencies {
+    implementation 'org.springframework:spring-web:6.2.11'
+}
