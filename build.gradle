@@ -7,7 +7,7 @@ plugins {
 }
 
 group = 'io.github.seob7'
-version = '0.0.1'
+version = '0.0.2'
 
 repositories {
     mavenCentral()
@@ -27,7 +27,7 @@ mavenPublishing {
     signAllPublications()
     publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
 
-    coordinates("io.github.seob7", "common-api", "0.0.1")
+    coordinates("io.github.seob7", "common-api", "0.0.2")
 
     // POM 설정
     pom {
@@ -62,4 +62,5 @@ mavenPublishing {
 
 dependencies {
     implementation 'org.springframework:spring-web:6.2.11'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.19.2'
 }
