@@ -1,11 +1,19 @@
 package io.github.seob7;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class MetaData {
     private final boolean success;
     private final int code;
     private final String message;
 
-    public MetaData(boolean success, int code, String message) {
+    @JsonCreator
+    public MetaData(
+        @JsonProperty("success") boolean success,
+        @JsonProperty("code") int code,
+        @JsonProperty("message") String message
+    ) {
         this.success = success;
         this.code = code;
         this.message = message;
