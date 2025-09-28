@@ -1,5 +1,7 @@
 package io.github.seob7;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -8,7 +10,11 @@ public class Api<T> {
     private final MetaData metaData;
     private final T data;
 
-    public Api(MetaData metaData, T data) {
+    @JsonCreator
+    public Api(
+        @JsonProperty("metaData") MetaData metaData,
+        @JsonProperty("data") T data
+    ) {
         this.metaData = metaData;
         this.data = data;
     }

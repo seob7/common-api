@@ -32,7 +32,7 @@ All API responses follow this JSON structure:
 
 ```groovy
 dependencies {
-    implementation 'io.github.seob7:common-api:0.0.1'
+    implementation 'io.github.seob7:common-api:0.0.2'
 }
 ```
 
@@ -42,7 +42,7 @@ dependencies {
 <dependency>
     <groupId>io.github.seob7</groupId>
     <artifactId>common-api</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
 </dependency>
 ```
 
